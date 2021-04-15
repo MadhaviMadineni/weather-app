@@ -1,0 +1,61 @@
+.weather_report {
+    color: white;
+    background-image: url('../assets/earthBG.jpg');
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .form_class {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        .search_box {
+            padding-right: 20px;
+        }
+    }
+
+    .tab_item {
+        .mat-tab-header {
+            background-color: black;
+            .mat-tab-label {
+                color: white;
+            }
+        }
+        
+    }
+
+    .day_data {
+        height: 60vh;
+        .left_half {
+            font-size: 30px;
+            .items {
+                padding-left: 20%;
+                p {
+                    padding: 10px;
+                }
+            }
+            margin-top: 30vh;
+            float: left;
+            width: 50%;
+        }
+        .right_half {
+            font-size: 100px;
+            .items {
+                padding-left: 20%;
+            }
+            margin-top: 35vh;
+            float: left;
+            width: 50%;
+        }
+    }
+    .empty_state {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 70vh;
+        .empty_value {
+            font-size: 20px;
+        }
+    }
+}

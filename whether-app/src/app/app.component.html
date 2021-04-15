@@ -1,0 +1,55 @@
+<div class="weather_report">
+  <div class="form_class">
+    <div class="search_box">
+      <label>
+        City Name:
+        <input type="text" [formControl]="cityName">
+      </label>
+    </div>
+    <div class="search_btn">
+      <button mat-raised-button color="primary" (click)="onSubmit()">Search</button>
+    </div>
+    </div>
+    
+    <ng-container *ngIf="weatherData">
+    <mat-tab-group class="tab_item">
+      <!-- If there is weather data -->
+        <ng-container *ngFor="let day of weatherData.list">
+          <mat-tab [label]="spliceDate(day.dt_txt)">
+            <div class="day_data">
+              <div class="left_half">
+                <div class="items">
+                  <p>Minimum Temparature {{ day.main.temp_min }}</p>
+                  <p>Maximum Temparature{{ day.main.temp_max }}</p>
+                  <p>pressure {{ day.main.pressure }}</p>
+                  <p>humidity {{ day.main.humidity }}</p>
+                </div>
+              </div>
+  
+              <div class="right_half">
+                <div class="items">{{day.main.temp}}</div>
+                
+              </div>
+            </div>
+          </mat-tab>
+        </ng-container>
+    </mat-tab-group>
+  </ng-container>
+  <!-- If there is no weather Data -->
+  <ng-container *ngIf="!weatherData">
+  <ng-container *ngIf="error">
+    <div class="empty_state">
+      <div class="empty_value">
+        The above specified city is not there Please retry with valid city name
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!error">
+    <div class="empty_state">
+      <div class="empty_value">
+        Please search for a city, The data visible after search is in Mertic Units i.e., Celcius
+      </div>
+    </div>
+  </ng-container>
+  </ng-container>
+</div>
